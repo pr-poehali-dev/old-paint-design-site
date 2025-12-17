@@ -100,6 +100,19 @@
   body {
     @apply bg-background text-foreground;
     font-family: "VT323", monospace;
+    cursor:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black" stroke="white" stroke-width="1" d="M12 2 L12 8 L8 8 L8 12 L4 12 L4 16 L8 16 L8 20 L12 20 L12 16 L16 16 L16 12 L12 12 Z"/></svg>')
+        12 12,
+      auto;
+  }
+
+  button,
+  a,
+  .cursor-pointer {
+    cursor:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23FF6B6B" stroke="white" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="white"/></svg>')
+        10 10,
+      pointer;
   }
 }
 
@@ -122,5 +135,19 @@
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+  }
+
+  .paint-cursor {
+    cursor:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black" stroke="white" stroke-width="1" d="M4 20 L4 4 L6 4 L6 6 L8 6 L8 8 L10 8 L10 10 L12 10 L12 12 L10 12 L10 14 L8 14 L8 16 L6 16 L6 18 L4 18 Z"/></svg>')
+        4 20,
+      auto;
+  }
+
+  .pencil-cursor {
+    cursor:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="4" height="14" fill="%23FFD700" stroke="black"/><polygon points="2,16 6,16 4,20" fill="%23000000"/></svg>')
+        4 20,
+      auto;
   }
 }

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [activeTool, setActiveTool] = useState('карандаш');
 
   const menuItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
@@ -60,11 +61,31 @@ const Index = () => {
                 Инструменты дизайнера
               </div>
               <div className="flex gap-2 flex-wrap">
-                {['Карандаш', 'Кисть', 'Ластик', 'Заливка', 'Текст', 'Линия'].map((tool) => (
-                  <div key={tool} className="win95-border bg-[#C0C0C0] px-4 py-2 hover:bg-[#A0A0A0] cursor-pointer">
-                    {tool}
+                {[
+                  { name: 'Карандаш', emoji: '✏️', cursor: 'pencil-cursor' },
+                  { name: 'Кисть', emoji: '🖌️', cursor: 'paint-cursor' },
+                  { name: 'Ластик', emoji: '🧹', cursor: 'crosshair' },
+                  { name: 'Заливка', emoji: '🪣', cursor: 'cell' },
+                  { name: 'Текст', emoji: '📝', cursor: 'text' },
+                  { name: 'Линия', emoji: '📏', cursor: 'crosshair' }
+                ].map((tool) => (
+                  <div 
+                    key={tool.name}
+                    onClick={() => {
+                      setActiveTool(tool.name.toLowerCase());
+                      document.body.className = tool.cursor;
+                    }}
+                    className={`win95-border px-4 py-2 hover:bg-[#A0A0A0] cursor-pointer transition-all ${
+                      activeTool === tool.name.toLowerCase() ? 'bg-white' : 'bg-[#C0C0C0]'
+                    }`}
+                  >
+                    <span className="mr-2">{tool.emoji}</span>
+                    {tool.name}
                   </div>
                 ))}
+              </div>
+              <div className="mt-3 win95-inset bg-white p-2 text-sm">
+                Выбран инструмент: <strong>{activeTool}</strong>
               </div>
             </div>
           </div>
@@ -230,7 +251,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#008080] p-4">
+    <div className="min-h-screen bg-[#008080] p-4 paint-cursor">
       <div className="max-w-6xl mx-auto">
         <div className="win95-border bg-[#C0C0C0] mb-4">
           <div className="bg-gradient-to-r from-[#000080] to-[#1084D0] text-white px-3 py-1 flex items-center justify-between">
